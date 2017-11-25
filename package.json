@@ -1,7 +1,7 @@
 {
-  "name": "@unction/{{FQNAME}}",
+  "name": "@unction/of",
   "version": "1.0.0",
-  "description": "",
+  "description": "Creates a functor based on a value and optional key",
   "keywords": [
     "unction",
     "functional"
@@ -14,9 +14,9 @@
     }
   ],
   "license": "ISC",
-  "homepage": "https://github.com/unctionjs/{{NAME}}#readme",
-  "repository": "github:unctionjs/{{NAME}}",
-  "bugs": "https://github.com/unctionjs/{{NAME}}/issues",
+  "homepage": "https://github.com/unctionjs/of#readme",
+  "repository": "github:unctionjs/of",
+  "bugs": "https://github.com/unctionjs/of/issues",
   "main": "transpiled/index.js",
   "files": [
     "transpiled/index.js"
@@ -38,6 +38,7 @@
     "watch": "chokidar './index.js' './test.js' --command 'npm run ci --silent'"
   },
   "devDependencies": {
+    "@unction/streamsatisfies": "3.50.0",
     "babel-cli": "6.26.0",
     "babel-core": "6.26.0",
     "babel-eslint": "8.0.0",
@@ -58,5 +59,8 @@
     "nyc": "11.2.1",
     "tap": "10.7.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@unction/type": "2.8.0",
+    "xstream": "11.0.0"
+  }
 }
