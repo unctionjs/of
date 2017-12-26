@@ -1,12 +1,22 @@
-import xstream from "xstream"
+import {of as streamOf} from "most"
 import type from "@unction/type"
 
 export default function of (key: KeyType | void): UnaryFunctionType {
   return function ofKey (value: ValueType): UnaryFunctionType {
     return function ofKeyValue (functor: FunctorType): UnaryFunctionType {
       switch (type(functor)) {
+        case "Array": {
+          return [
+            value,
+          ]
+        }
         case "Object": {
           return {[key]: value}
+        }
+        case "Set": {
+          return new Set([
+            value,
+          ])
         }
         case "Map": {
           return new Map([
@@ -16,24 +26,11 @@ export default function of (key: KeyType | void): UnaryFunctionType {
             ],
           ])
         }
-        case "Set": {
-          return new Set([
-            value,
-          ])
-        }
-        case "Array": {
-          return [
-            value,
-          ]
-        }
         case "String": {
           return `${value}`
         }
         case "Stream": {
-          return xstream.of(value)
-        }
-        case "MemoryStream": {
-          return xstream.of(value).remember()
+          return streamOf(value)
         }
         default: {
           throw new Error(`of doesn't know how to type ${type(functor)}`)

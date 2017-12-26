@@ -1,6 +1,6 @@
 /* eslint-disable flowtype/require-parameter-type, flowtype/require-return-type */
 import {test} from "tap"
-import xstream from "xstream"
+import {empty} from "most"
 import streamSatisfies from "@unction/streamsatisfies"
 
 import of from "./index"
@@ -60,38 +60,26 @@ test("String", ({same, end}) => {
   end()
 })
 
-test("Stream", ({equal, end}) => {
+test("Stream", ({equal, doesNotThrow, end}) => {
   streamSatisfies(
     "'a'---|"
   )(
     (given) => (expected) => equal(given, expected)
   )(
-    () => () => end()
+    doesNotThrow
+  )(
+    ({length}) =>
+      (position) => {
+        equal(length, position)
+        end()
+      }
   )(
     of(
       null
     )(
       "a"
     )(
-      xstream.empty()
-    )
-  )
-})
-
-test("MemoryStream", ({equal, end}) => {
-  streamSatisfies(
-    "'a'---|"
-  )(
-    (given) => (expected) => equal(given, expected)
-  )(
-    () => () => end()
-  )(
-    of(
-      null
-    )(
-      "a"
-    )(
-      xstream.empty().remember()
+      empty()
     )
   )
 })
