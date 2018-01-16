@@ -4,7 +4,7 @@
 ![Stability][BADGE_STABILITY]
 ![Dependencies][BADGE_DEPENDENCY]
 
-> (KeyType | void) -> ValueType -> FunctorType
+> (KeyType | void) => ValueType => FunctorType
 
 Creates a functor based on a value and optional key.
 
