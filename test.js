@@ -1,18 +1,18 @@
 /* eslint-disable flowtype/require-return-type */
-import {test} from "tap"
-import {empty} from "most"
-import streamSatisfies from "@unction/streamsatisfies"
+import {test} from "tap";
+import {empty} from "most";
+import streamSatisfies from "@unction/streamsatisfies";
 
-import of from "./index"
+import of from "./index";
 
 test("Object", ({same, end}) => {
   same(
     of("aaa")("bbb")({}),
     {aaa: "bbb"}
-  )
+  );
 
-  end()
-})
+  end();
+});
 
 test("Array", ({same, end}) => {
   same(
@@ -21,10 +21,10 @@ test("Array", ({same, end}) => {
     [
       "bbb",
     ]
-  )
+  );
 
-  end()
-})
+  end();
+});
 
 test("Map", ({same, end}) => {
   same(
@@ -35,10 +35,10 @@ test("Map", ({same, end}) => {
         "bbb",
       ],
     ])
-  )
+  );
 
-  end()
-})
+  end();
+});
 
 test("Set", ({same, end}) => {
   same(
@@ -46,19 +46,19 @@ test("Set", ({same, end}) => {
     new Set([
       "bbb",
     ])
-  )
+  );
 
-  end()
-})
+  end();
+});
 
 test("String", ({same, end}) => {
   same(
     of(null)("a")(""),
     "a"
-  )
+  );
 
-  end()
-})
+  end();
+});
 
 test("Stream", ({equal, doesNotThrow, end}) => {
   streamSatisfies(
@@ -70,8 +70,8 @@ test("Stream", ({equal, doesNotThrow, end}) => {
   )(
     ({length}) =>
       (position) => {
-        equal(length, position)
-        end()
+        equal(length, position);
+        end();
       }
   )(
     of(
@@ -81,11 +81,11 @@ test("Stream", ({equal, doesNotThrow, end}) => {
     )(
       empty()
     )
-  )
-})
+  );
+});
 
 test(({throws, end}) => {
-  throws(() => of("a")("b")(false))
+  throws(() => of("a")("b")(false));
 
-  end()
-})
+  end();
+});
