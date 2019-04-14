@@ -17,7 +17,7 @@
   "homepage": "https://github.com/unctionjs/of#readme",
   "repository": "github:unctionjs/of",
   "bugs": "https://github.com/unctionjs/of/issues",
-  "main": "transpiled/main.js",
+  "main": "main.js",
   "files": [
     "index.js",
     "main.js",
@@ -70,5 +70,5 @@
     "most": "1.7.2"
   },
   "module": "index.js",
-  "browser": "transpiled/browser.js"
+  "browser": "browser.js"
 }
