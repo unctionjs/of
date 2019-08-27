@@ -1,9 +1,9 @@
-/* eslint-disable flowtype/require-return-type */
+
 import {test} from "tap";
 import {empty} from "most";
 import streamSatisfies from "@unction/streamsatisfies";
 
-import of from "./index";
+import of from "./";
 
 test("Object", ({same, end}) => {
   same(
