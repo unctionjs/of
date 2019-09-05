@@ -4,9 +4,9 @@
 ![Stability][BADGE_STABILITY]
 ![Dependencies][BADGE_DEPENDENCY]
 
-> (KeyType | void) => ValueType => FunctorType
+> A => B => EnumerableType<C, D> => EnumerableType<A, B>
 
-Creates a functor based on a value and optional key.
+Creates a enumerable based on a value and optional key.
 
 ``` javascript
 of("aaa")("bbb")({}) // {aaa: "bbb"}

@@ -1,44 +1,40 @@
 import {of as streamOf} from "most";
 import type from "@unction/type";
-export default function of (key) {
-  return function ofKey (value) {
-    return function ofKeyValue (functor) {
-      switch (type(functor)) {
-        case "Array":
-        {
+
+import {EnumerableType} from "./types";
+
+export default function of<A, B, C, D> (key: A) {
+  return function ofKey (value: B) {
+    return function ofKeyValue (enumerable: EnumerableType<C, D>): EnumerableType<A, B> {
+      switch (type(enumerable)) {
+        case "Array": {
           return [value];
         }
 
-        case "Object":
-        {
+        case "Object": {
           return {
             [key]: value,
           };
         }
 
-        case "Set":
-        {
+        case "Set": {
           return new Set([value]);
         }
 
-        case "Map":
-        {
+        case "Map": {
           return new Map([[key, value]]);
         }
 
-        case "String":
-        {
+        case "String": {
           return `${value}`;
         }
 
-        case "Stream":
-        {
+        case "Stream": {
           return streamOf(value);
         }
 
-        default:
-        {
-          throw new Error(`of doesn't know how to type ${type(functor)}`);
+        default: {
+          throw new Error(`of doesn't know how to type ${type(enumerable)}`);
         }
       }
     };
