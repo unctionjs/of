@@ -58,6 +58,6 @@ test("Stream", done => {
   );
 });
 
-test(() => {
+test("works", () => {
   expect(() => of("a")("b")(false)).toThrow();
 });
