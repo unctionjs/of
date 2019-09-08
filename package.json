@@ -1,6 +1,6 @@
 {
   "name": "@unction/of",
-  "version": "5.9.0",
+  "version": "5.9.1",
   "description": "Creates a functor based on a value and optional key",
   "keywords": [
     "unction",
