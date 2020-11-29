@@ -1,8 +1,6 @@
 import {of as streamOf} from "most";
 import type from "@unction/type";
 
-import {EnumerableType} from "./types";
-
 export default function of<A, B, C, D> (key: A) {
   return function ofKey (value: B) {
     return function ofKeyValue (enumerable: EnumerableType<C, D>): EnumerableType<A, B> {
