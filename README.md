@@ -4,7 +4,7 @@
 ![Stability][BADGE_STABILITY]
 ![Dependencies][BADGE_DEPENDENCY]
 
-> A => B => EnumerableType<C, D> => EnumerableType<A, B>
+> A => B => Record<string | number | symbol, C> | Map<D, C> => Record<string | number | symbol, B> | Map<B, A>
 
 Creates a enumerable based on a value and optional key.
 

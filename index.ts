@@ -3,7 +3,7 @@ import type from "@unction/type";
 
 export default function of<A, B, C, D> (key: A) {
   return function ofKey (value: B) {
-    return function ofKeyValue (enumerable: EnumerableType<C, D>): EnumerableType<A, B> {
+    return function ofKeyValue (enumerable: Record<string | number | symbol, C> | Map<D, C>): Record<string | number | symbol, B> | Map<B, A> {
       switch (type(enumerable)) {
         case "Array": {
           return [value];
